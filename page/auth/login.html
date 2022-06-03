@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="theme-color" content="#99042E" charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/auth.css" />
+    <link rel="stylesheet" href="../../assets/css/w3.css">
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+
+<body class="login" onload="login()">
+    <div class="login-form">
+        <center>
+            <h1 class="w3-text-white">Log In</h1>
+            <form action="Back-End-Message.html" method="post">
+                <div class="inputBox">
+                    <div class="loginput">
+                        <label class="">Student ID: </label><input type="number" name="user_id" placeholder="1234567890"
+                            required>
+                    </div>
+                    <div class="loginput">
+                        <label class="">Password: </label><input type="password" name="password1"
+                            placeholder="Please Insert!" required onkeyup="pswdVerify(name, value)">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <h4></h4>
+                    <input type="submit" class="registerbtn" value="Login">
+                </div>
+
+            </form>
+        </center>
+    </div>
+    <p id="info">©2018 Marco C. All rights reserved.<a target="_blank" href="info.html">info</a></p>
+</body>
+<script>
+    function login() {
+
+    }
+</script>
+
+</html>

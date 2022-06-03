@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/auth.css">
+	<link rel="icon" type="image/png" href="../../assets/img/icon.ico" sizes="16x16" />
+	<script src="../../assets/js/jquery.min.js"></script>
+	<title>REGiSTRATiON</title>
+</head>
+
+<body class="register" onload="register()">
+	<div class="register-form">
+		<div class="form-box">
+			<h2>Register Now</h2>
+			<form action="Back-End-Message.html" method="post">
+				<div class="inputBox">
+					<div class="input-rows">
+						<label>Student ID: </label><input type="number" name="user_id" placeholder="1234567890" required>
+					</div>
+					<div class="input-rows">
+						<label>Email: </label><input type="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="input-rows">
+						<label>Password: </label><input type="password" name="password1" placeholder="Please Insert!" required
+							onkeyup="pswdVerify(name, value)">
+					</div>
+					<small class="w3-yellow"></small>
+					<div class="input-rows">
+						<label>Confirm Password: </label><input type="password" name="password2" placeholder="Please Confirm!"
+							required onkeyup="pswdVerify(name, value)">
+					</div>
+					<div class="input-rows">
+						<label>Select Team:
+						</label>
+						<select name="team" id="selecTeam">
+							<option value="">Select a Team</option>
+							<option value="1">Team1</option>
+							<option value="2">Team2</option>
+							<option value="3">Team3</option>
+							<option value="4">Team4</option>
+						</select>
+					</div>
+				</div>
+				<div class="inputBox">
+					<h4></h4>
+					<input type="submit" class="registerbtn" value="Sign Up">
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</body>
+<script>
+	function register() {
+		console.log("this is register");
+		// $("input:submit").hide();
+	}
+	var user_id;
+	var email = "";
+	var pswd1 = "";
+	var pswd2 = "";
+	var team = "";
+
+	function pswdVerify(name, e) {
+		if (name == "password1") {
+			pswd1 = e;
+		}
+		if (name == "password2") {
+			pswd2 = e;
+		}
+
+		if (pswd1 != pswd2 && pswd1.length <= 8 && pswd2.length <= 8) {
+			// $("label:contains(Password)").css("color", "red");
+			$("small").text("Password is not matched!").css("color", 'yellow');
+		} else if (pswd1 == pswd2 && pswd1.length <= 8 && pswd2.length <= 8) {
+			// $("label:contains(Password)").css("color", "#10f018");
+			$("small").text("Password must be 9 more than characters!").css("color", 'blue');
+		} else if (pswd1 == pswd2 && pswd1.length >= 9 && pswd2.length >= 9) {
+			$("small").hide();
+		}
+
+	}
+	$("input:password").focus(function () {
+		pswdVerify();
+	})
+	$("#selecTeam").click(function () {
+		console.log(this.value);
+		team = this.value;
+	})
+	$("input:submit").click(function (e) {
+		user_id = $("[name='user_id']").val();
+		email = $("[name='email']").val();
+
+		e.preventDefault();
+		if (user_id > 0 && email.length > 0 && pswd1.length > 8 && team.length > 0) {
+			console.log("this is register data");
+			location = "login.html";
+		} else {
+			console.log("there is empty field");
+		}
+	})
+
+
+</script>
+
+</html>
